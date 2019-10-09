@@ -14,6 +14,9 @@ Stome use directories and files to store its data, the directory structure looks
 import os
 
 
+CHUNK_SIZE = 4096
+
+
 ROOT_DIR = '/data/stome-root'
 META_DIR = os.path.join(ROOT_DIR, 'meta')
 INODE_DATA_DIR = os.path.join(ROOT_DIR, 'inode-data')
