@@ -55,3 +55,21 @@ def test_upload(client, authed, filesystem):
     path = '/api/file/foo/bar'
     assert client.post(path, data=NEW_CONTENT).status_code == 200
     assert client.get(path).content == NEW_CONTENT
+
+
+def test_list_dir(client, authed, filesystem):
+    # initially empty
+    data = client.get('/api/dir/').json()
+    assert not data['dirs']
+    assert not data['files']
+    # create a file and a directory
+    assert client.post('/api/file/t.txt').status_code == 200
+    assert client.post('/api/file/foo/bar').status_code == 200
+    data = client.get('/api/dir/').json()
+    assert len(data['dirs']) == 1
+    assert data['dirs'][0]['name'] == 'foo'
+    assert len(data['files']) == 1
+    assert data['files'][0]['name'] == 't.txt'
+    data = client.get('/api/dir/foo').json()
+    assert not data['dirs']
+    assert data['files'][0]['name'] == 'bar'

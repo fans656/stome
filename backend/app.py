@@ -34,6 +34,18 @@ async def upload_file(path, request: Request):
     await f.create(request.stream())
 
 
+@app.get('/api/dir/{path:path}')
+def list_directory(path):
+    dire = Dir(path)
+    ensure_existed(dire)
+    ensure_is_dir(dire)
+    dirs, files = dire.list()
+    return {
+        'dirs': [dict(d) for d in dirs],
+        'files': [dict(f) for f in files],
+    }
+
+
 def ensure_existed(node):
     if not node:
         raise HTTPException(404, 'Not found')
