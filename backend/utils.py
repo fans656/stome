@@ -4,9 +4,20 @@ import uuid
 import typing
 import hashlib
 
+import jwt
 import aiofiles
 
 import conf
+
+
+def get_user(request):
+    token = request.cookies.get('token')
+    if token:
+        try:
+            return jwt.decode(token, conf.PUBKEY, algorithm='RS512')
+        except Exception:
+            pass
+    return {'username': ''}
 
 
 def save_json(data: dict, path: str):
