@@ -2,7 +2,10 @@
   "name": "stome-frontend",
   "version": "1.0.0",
   "description": "",
+  "main": "next.config.js",
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "antd": "^3.24.0",
     "next": "^9.0.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
