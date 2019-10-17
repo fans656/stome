@@ -1,0 +1,20 @@
+body {
+  display: flex;
+}
+
+#__next {
+  flex: 1;
+}
+
+.layout-content {
+  display: flex;
+  flex: 1;
+  background-color: white;
+  margin: 1em;
+}
+
+.logo {
+  color: #ddd;
+  font-weight: bold;
+  font-size: 1.2em;
+}
