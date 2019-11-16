@@ -13,8 +13,26 @@ body {
   margin: 1em;
 }
 
+.layout-content > * {
+  display: flex;
+  flex: 1;
+}
+
 .logo {
   color: #ddd;
   font-weight: bold;
   font-size: 1.2em;
+}
+
+/* general */
+
+.horz {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vert {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }

@@ -1,0 +1,12 @@
+
+.mono {
+  font-family: 'Consolas', monospace;
+}
+
+.page {
+  flex: 1;
+}
+
+.vert.stretch {
+  align-items: stretch;
+}

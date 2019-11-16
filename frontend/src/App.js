@@ -1,6 +1,7 @@
 import React from 'react';
 import { Layout, Menu, Drawer, message } from 'antd';
 import 'antd/dist/antd.min.css';
+import Explorer from './Explorer';
 import './App.css';
 
 export default class App extends React.Component {
@@ -33,6 +34,7 @@ export default class App extends React.Component {
   renderExplorer = () => {
     return (
       <Layout.Content className="layout-content">
+        <Explorer/>
       </Layout.Content>
     );
   }
