@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Layout, Menu, Drawer, message } from 'antd';
 import 'antd/dist/antd.min.css';
 import Explorer from './Explorer';
@@ -16,15 +17,18 @@ export default class App extends React.Component {
 
   renderHeader = () => {
     return (
-      <Layout.Header style={{height: '45px', paddingLeft: 0}}>
+      <Layout.Header style={{height: '42px', paddingLeft: 0}}>
         <Menu
           theme="dark"
           mode="horizontal"
           style={{display: 'flex', lineHeight: '40px', padding: 0}}
-          selectedKeys={[]}
+          selectedKeys={[this.props.page]}
         >
           <Menu.Item>
-            <span className="logo">Stome</span>
+            <Link href="/"><a><span className="logo">Stome</span></a></Link>
+          </Menu.Item>
+          <Menu.Item key="local">
+            <Link href="/local"><a>Local</a></Link>
           </Menu.Item>
         </Menu>
       </Layout.Header>
@@ -34,7 +38,7 @@ export default class App extends React.Component {
   renderExplorer = () => {
     return (
       <Layout.Content className="layout-content">
-        <Explorer/>
+        {this.props.children || <Explorer/>}
       </Layout.Content>
     );
   }
